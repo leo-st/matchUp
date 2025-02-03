@@ -1,0 +1,75 @@
+/* CSS for Main component layout */
+
+.main {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar {
+    max-width: 0; /* Sidebar starts hidden */
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4; /* Example background color */
+    overflow: hidden;
+    transition: max-width 0.5s ease, padding 0.5s ease; /* Smooth transition for width and padding */
+    padding: 0; /* Sidebar has no padding when hidden */
+}
+
+.sidebar.open {
+    max-width: 20%; /* Sidebar expands to 20% when visible */
+    padding: 20px; /* Restores padding when visible */
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    transition: margin-left 0.5s ease; /* Smooth resizing */
+    background-color: #ffffff; /* Example background color */
+    height: 100%; /* Ensure it takes the full available height */
+}
+
+.feed-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.content.shifted {
+    margin-left: 20%; /* Shifts content when sidebar is visible */
+}
+
+.top-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    background-color: #eaeaea;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat {
+    width: 30%;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: center;
+    background-color: #eaeaea;
+}
+
+/* Optional media query for small screens */
+@media (max-width: 768px) {
+    .sidebar.open {
+        max-width: 25%;
+    }
+    .chat {
+        width: 40%;
+    }
+}

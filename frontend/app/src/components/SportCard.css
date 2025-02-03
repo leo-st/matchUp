@@ -1,0 +1,39 @@
+/* SportCard.css */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    padding: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Modern shadow */
+    background: #fff; /* White background */
+    transition: transform 0.2s, box-shadow 0.2s; /* Hover effect */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.card img {
+    width: 100px; /* Responsive image */
+    height: 100px; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded image corners */
+    opacity: 0.8; /* Transparency */
+    transition: opacity 0.3s; /* Smooth opacity change */
+}
+
+.card img:hover {
+    opacity: 1; /* Full visibility on hover */
+}
+
+.card p {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333; /* Dark gray text */
+    text-align: center; /* Center-align text */
+}

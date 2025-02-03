@@ -1,0 +1,34 @@
+.chat-messages {
+    flex: 1 1 auto;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #fff;
+  }
+  
+  .chat-message {
+    margin-bottom: 10px;
+  }
+  
+  .chat-message strong {
+    font-weight: bold;
+  }
+
+  .date-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .separator-line {
+    flex: 1;
+    height: 1px;
+    background-color: #ccc; /* Adjust color as needed */
+    margin: 0 10px;
+  }
+  
+  .separator-date {
+    font-size: 0.9rem;
+    color: #555; /* Adjust text color as needed */
+    font-weight: bold;
+  }

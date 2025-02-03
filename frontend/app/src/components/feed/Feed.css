@@ -1,0 +1,79 @@
+/* General styles for Feed */
+.feed {
+    flex: 1;
+    position: relative; /* Ensures child elements can use absolute positioning relative to this container */
+    overflow-y: auto; /* Makes feed content scrollable */
+    background-color: #ffffff;
+    padding: 20px;
+    height: 100%; /* Ensures it takes the full available height */
+    flex-grow: 1; /* Ensures it expands to fill available space */
+}
+
+h1 {
+    text-align: left;
+}
+
+h1:hover {
+    color: cornflowerblue;
+}
+
+ul {
+    display: flex; /* Use flexbox for horizontal alignment */
+    gap: 15px; /* Add space between cards */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    list-style: none; /* Remove bullet points from list */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    scroll-snap-type: x mandatory; /* Smooth scrolling experience */
+}
+
+li {
+    flex: 0 0 auto; /* Prevent cards from shrinking or stretching */
+    scroll-snap-align: start; /* Align items neatly on scroll */
+}
+
+
+
+/* Reopen button when overlay is closed */
+.reopen-button {
+    position: fixed; /* Keeps the reopen button fixed within the viewport */
+    bottom: 0; /* Positions it at the bottom of the viewport */
+    left: 0; /* Aligns it to the left of the viewport */
+    padding: 10px 20px;
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 100; /* Ensure it stays above other content */
+}
+
+.reopen-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.sport-card-container {
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    flex-direction: column; /* Stacks items vertically (optional if needed) */
+  }
+
+  .list-categories-container {
+    display: flex; /* Allows for horizontal alignment */
+    justify-content: flex-end; /* Moves the button to the right */
+    padding: 1rem; /* Adds some spacing around the container */
+  }
+  
+  .categories-button {
+    background: none; /* Removes default button styling */
+    border: none; /* Removes border */
+    color: #4d4d4d; /* Between grey and black */
+    font-size: 1rem; /* Adjust font size */
+    text-decoration: underline; /* Underlines the text */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+  }
+  
+  .categories-button:hover {
+    color: blue; /* Changes text color to blue on hover */
+  }

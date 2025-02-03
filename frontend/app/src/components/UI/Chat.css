@@ -1,0 +1,16 @@
+.chat-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .search-box-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    margin: 0 auto 10px;
+  }
+
+  .chat-container  h2{
+    text-align: left;
+    margin-left: 5%;
+  }

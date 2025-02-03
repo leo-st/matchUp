@@ -1,0 +1,80 @@
+.feed-post-main {
+    display: flex;
+    flex-direction: column;
+    width: 70%; /* Constrains the feed post to 70% of the FeedList's width */
+    max-width: 800px; /* Optional: Limits the maximum width */
+    height: auto; /* Adjusts height based on content */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    margin: 0 auto; /* Centers the FeedPost horizontally */
+  }
+  
+  .feed-post-image {
+    width: 100%; /* Ensures the image spans the full width of the container */
+    height: 50%; /* Restricts the image to 50% of the FeedPost height */
+    object-fit: cover; /* Maintains aspect ratio while covering the area */
+  }
+  
+  .feed-post-text {
+    padding: 1rem;
+  }
+  
+  .feed-post-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    object-fit: cover;
+  }
+  
+  .username {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .post-stats {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    margin: 0 0.25rem;
+    color: #555;
+  }
+  
+  .feed-post-description {
+    margin-bottom: 1rem;
+  }
+  
+  .feed-post-description p {
+    margin: 0 0 0.5rem;
+  }
+  
+  .post-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+  }
+  
+  .place {
+    color: #555;
+  }
+  
+  .time {
+    font-weight: bold;
+  }

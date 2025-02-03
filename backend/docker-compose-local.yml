@@ -1,0 +1,50 @@
+services:
+  db-postgres:
+    container_name: matchup-db-postgres-container
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    ports:
+      - 5450:5432
+    volumes:
+      - "./db/postgresql_data/:/postgresql_data/"
+    networks:
+      - matchup_local_network
+    env_file:
+      - ./db/.env
+      
+  api:
+    container_name: matchup-api-container
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    user: "1000:1000"
+    ports:
+      - 5451:5000
+    networks:
+      - matchup_local_network
+    volumes:
+      - "./app/data/:/home/app/data/"
+    env_file:
+      - ./app/.env
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000", "--workers", "4", "--timeout-graceful-shutdown", "700", "--log-level", "info", "--access-log"]
+    depends_on:
+      - db-postgres
+
+  cache:
+    container_name: matchup-cache-container
+    image: redis:6.2-alpine
+    ports:
+      - 5452:6383
+    networks:
+      - matchup_local_network
+    command:
+      - /bin/sh
+      - -c 
+      - redis-server --port 6383 --save 20 1 --loglevel warning --requirepass "$${REDIS_PASSWORD:?REDIS_PASSWORD variable is not set}"
+    env_file:
+      - ./app/.env
+
+networks:
+  matchup_local_network:
+    name: matchup_local_network
