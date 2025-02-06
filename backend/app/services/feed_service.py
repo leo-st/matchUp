@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from models.feed import Feed
 from schemas.feed import FeedSearch, FeedCreate, FeedUpdate
 import crud
+from models.messages import ChatGroup
 
 def get_feed_by_id(feed_id:str, db: Session):
     try:
@@ -31,7 +32,15 @@ def get_feeds_by_sports(filters: FeedSearch, db: Session):
     
 def create_feed(new_feed: FeedCreate, user_id:int,  db: Session):
     try:
+        # create feed
         feed = crud.feed.create(db=db, obj_in=new_feed, user_id=user_id)
+        # create new chatgroup bounded to this feed
+        chat_group = ChatGroup(
+            feed_id = feed.id,
+            admin_user_id=user_id
+        )
+        db.add(chat_group)
+        db.commit()
         return feed
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"There was an error in create_feed! {e}")
